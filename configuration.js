@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.VERSION = void 0;
 
-var _snakecase = _interopRequireDefault(require("lodash/snakecase"));
+var _lodash = _interopRequireDefault(require("lodash"));
 
 var _joi = _interopRequireDefault(require("joi"));
 
@@ -84,7 +84,7 @@ function () {
       var optionsCopy = _objectSpread({}, options);
 
       optionNames.forEach(function (name) {
-        var envVar = "".concat(_this.prefix, "_").concat((0, _snakecase.default)(name).toUpperCase());
+        var envVar = "".concat(_this.prefix, "_").concat(_lodash.default.snakeCase(name).toUpperCase());
         optionsCopy[name] = process.env[envVar] || optionsCopy[name];
       });
       return optionsCopy;

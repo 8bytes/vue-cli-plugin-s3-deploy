@@ -1,4 +1,4 @@
-import { snakeCase } from 'lodash';
+import lodash from 'lodash';
 import Joi from 'joi'
 import { join } from 'path';
 
@@ -62,7 +62,7 @@ class Configuration {
     let optionsCopy = { ...options }
 
     optionNames.forEach((name) => {
-      let envVar = `${this.prefix}_${snakeCase(name).toUpperCase()}`
+      let envVar = `${this.prefix}_${lodash.snakeCase(name).toUpperCase()}`
       optionsCopy[name] = process.env[envVar] || optionsCopy[name]
     })
 
